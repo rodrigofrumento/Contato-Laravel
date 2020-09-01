@@ -16,12 +16,13 @@ class ContatoController extends Controller
     }
 
     //Envia mensagem
-    public function enviar(ContatoEnviarRequest $request, Contato $contato, \App\NotificarEmail $notificar)
+    public function enviar(ContatoEnviarRequest $request, Contato $contato, NotificacaoInterface $notificar)
     {
         
         $contato->nome = $request->get('nome');
         $contato->email = $request->get('email');
         $contato->mensagem = $request->get('mensagem');
+        $contato->categoria_id = $request->get('categoria_id');
         $contato->save();
 
         $notificar->notificar();

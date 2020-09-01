@@ -23,6 +23,18 @@
         @endif
         <form action="/enviar" method="POST">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
+            
+            <div class="form-group">
+                <label for="name">Categoria</label>
+                <select name="categoria_id" id="categoria_id" class="form-control">
+                    <option value="null">Selecione uma Categoria</option>
+                    @foreach (App\Categoria::all() as $categoria)
+                        <option value="{{$categoria->id }}">{{$categoria->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <hr />
+
             <div class="form-group">
                 <label for="name">Nome</label>
                 <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome">
