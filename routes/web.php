@@ -13,4 +13,10 @@
 
 Route::get('/', 'ContatoController@index');
 Route::post('/enviar', 'ContatoController@enviar');
-Route::get('/lista', 'ContatoController@lista');
+Route::get('/lista', ['middleware' => 'auth', 'uses' => 'ContatoController@lista']);
+
+/* Login Routes */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

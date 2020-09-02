@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mensagens enviadas</title>
+    <title>Mensagens Recebidas</title>
     
     <!-- Bootstrap minified -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -17,6 +17,7 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Categoria</th>
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Mensagem</th>
@@ -26,6 +27,7 @@
             @foreach ($contatos as $c)
                 <tr>
                     <th scope="row">{{ $c->id}}</th>
+                    <td>{{ $c->categoria->name }}</td>
                     <td>{{ $c->nome }}</td>
                     <td>{{ $c->email }}</td>
                     <td>{{ $c->mensagem }}</td>
